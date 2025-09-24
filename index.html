@@ -4,135 +4,226 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="css/index.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+      integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
     <script src="js/jquery-3.7.1.min.js"></script>
     <script src="js/jquery-ui.min.js"></script>
     <script src="js/jquery.transform2d.js"></script>
     <script src="js/custom.js"></script>
   </head>
   <body>
+    <!--HEADER-->
     <header>
-      <ul>
-        <li><a href="#">Blue Bottle</a></li>
-        <li><a href="#">Menu</a></li>
-        <li><a href="#">Bakery</a></li>
-        <li><a href="#">Shop</a></li>
-      </ul>
+      <div class="headerLeft">
+        <ul class="leftMenu">
+          <li><a href="#">쇼핑</a></li>
+          <li><a href="#">베스트셀러</a></li>
+          <li><a href="#">추석선물</a></li>
+          <li><a href="#">카페</a></li>
+        </ul>
+        <div class="burger">
+          <div class="open"><i class="fa-solid fa-bars"></i></div>
+          <div class="close"><i class="fa-solid fa-xmark"></i></div>
+        </div>
+      </div>
+      <h1 class="logo">
+        <a href="index.html"> <img src="img/logotransparent.svg" /></a>
+      </h1>
+      <div class="headerRight">
+        <ul class="rightMenu">
+          <li>
+            <a href="#">
+              <i class="fa-solid fa-magnifying-glass"></i>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <i class="fa-solid fa-user"></i>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <i class="fa-solid fa-bag-shopping"></i>
+            </a>
+          </li>
+        </ul>
+      </div>
     </header>
+    <!--SIDE MENU-->
+    <div id="menu">
+      <ul>
+        <li>
+          <a href=""> 쇼핑</a>
+        </li>
+        <li><a href="">베스트셀러</a></li>
+        <li><a href="">추석선물</a></li>
+        <li><a href="">카페</a></li>
+      </ul>
+    </div>
+    <!--CONTAINER-->
     <div id="container">
+      <!--CON01 / VISUAL-->
       <section id="con01">
-        <div class="txt">
-          <h2>여름을 위한 글라스!</h2>
-          <p>신제품 글라스 머그를 만나보세요!</p>
+        <div class="slider">
+          <ul class="panel">
+            <li class="panel01">
+              <div class="panelTxt">
+                <h2>추석 선물 제안</h2>
+                <p>10% 할인 혜택으로 준비하는 선물 세트</p>
+                <div class="more">
+                  <a href="#">자세히 보기</a>
+                </div>
+              </div>
+            </li>
+            <li class="panel02">
+              <div class="panelTxt">
+                <h2>새로운 아이템</h2>
+                <p>새로운 계절을 머금는 신제품을 만나보세요</p>
+                <div class="more">
+                  <a href="#">자세히 보기</a>
+                </div>
+              </div>
+            </li>
+            <li class="panel03">
+              <div class="panelTxt">
+                <h2>NEW 싱글 오리진</h2>
+                <p>브라질 카콘데 세라 도 시가노 벨리</p>
+                <div class="more">
+                  <a href="#">자세히 보기</a>
+                </div>
+              </div>
+            </li>
+          </ul>
+          <ul class="navi">
+            <li class="prev">
+              <a href="#"><i class="fa-solid fa-arrow-left"></i></a>
+            </li>
+            <li>
+              <span>1</span>
+              <div class="bar">
+                <div></div>
+              </div>
+              <span></span>
+            </li>
+            <li class="next">
+              <a href="#"><i class="fa-solid fa-arrow-right"></i></a>
+            </li>
+          </ul>
+        </div>
+      </section>
+      <!--CON02-->
+      <section id="con02">
+        <ul>
+          <li>
+            <a href="#">
+              <div>
+                <h2>에센셜리스트 머그</h2>
+                <p>유니크란 디자인의 신제품</p>
+              </div>
+              <img src="img/mug1.webp" />
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <div>
+                <h2>트래블 머그 화이트 20oz</h2>
+                <p>넉넉한 사이즈와 실용적 디자인</p>
+              </div>
+              <img src="img/mug2.webp" />
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <div>
+                <h2>벨라 도노반</h2>
+                <p>블루보틀 시그니처 블렌드</p>
+              </div>
+              <img src="img/mug3.webp" />
+            </a>
+          </li>
+        </ul>
+      </section>
+      <!--CON03-->
+      <section id="con03">
+        <div class="bg">
+          <div class="txtTop">
+            <h2>글라스 머그</h2>
+            <p>
+              미니멀하고 활용도 높은 디자인의 한정 시즌 아이템 머그를 만나보세요
+            </p>
+          </div>
           <div class="more">
             <a href="#">자세히 보기</a>
           </div>
         </div>
       </section>
-      <section id="con02">
-        <ul>
-          <li>
-            <a href="#">
-              <img src="img/othermenu1.png" />
-              <div>
-                <h2>Beverage</h2>
-                <p>음료</p>
-              </div>
-            </a>
-          </li>
-          <li>
-            <a href="#">
-              <img src="img/othermenu2.png" />
-              <div>
-                <h2>Dessert</h2>
-                <p>디저트</p>
-              </div>
-            </a>
-          </li>
-          <li>
-            <a href="#">
-              <img src="img/othermenu3.png" />
-              <div>
-                <h2>Food</h2>
-                <p>푸드</p>
-              </div>
-            </a>
-          </li>
-          <li>
-            <a href="#">
-              <img src="img/othermenu4.png" />
-              <div>
-                <h2>Retail</h2>
-                <p>상품</p>
-              </div>
-            </a>
-          </li>
-        </ul>
-      </section>
-      <section id="con03">
+      <!--CON04-->
+      <section id="con04">
         <div class="txt">
           <div class="left">
-            <img src="img/goldenbrown.jpg" />
+            <img src="img/f.webp" />
           </div>
           <div class="right">
-            <h2>
-              온라인 스토어 단독
-              <br />
-              푸어 오버 키트를 만나보세요
-            </h2>
+            <h2>온라이 스트어 푸어 오버 키트를 만나보세요</h2>
             <ul>
               <li>
-                <p>런치백</p>
-                아폴리스와의 협업으로 탄생한 토트백
+                <h4>커피 드리퍼</h4>
+                <p>최상의 푸어 오버를 위해 탄생한 정교한 디자인과 기능</p>
               </li>
               <li>
-                <p>키 체인</p>
-                커프 트럭을 모티브로 선보이는 엑세서리
+                <h4>커피 카라페</h4>
+                <p>드리퍼와 함께 편리하게 사용할 수 있는 디자인과 사이즈</p>
               </li>
               <li>
-                <p>엠브로더리 에코백</p>
-                볼앤체인과 블루보틀 커피가 협업한 에코백
+                <h4>커피 필터</h4>
+                <p>블루보틀의 노하우를 담은 독창적 디자인의 필터</p>
               </li>
             </ul>
             <div class="more">
-              <a href="#"
-                ><p>더 알아보기</p>
-                <p><i class="fa-solid fa-chevron-right"></i></p
-              ></a>
+              <a href="#">푸어 오버 키트 보기</a>
             </div>
           </div>
         </div>
       </section>
-      <section id="con04">
+      <!--CON05-->
+      <section id="con05">
         <div class="txt">
           <div class="left">
+            <img src="img/q.jpg" />
+          </div>
+          <div class="right">
             <h2>
-              다채로운 라이프스타일<br />
+              다채로운 라이프스타일
+              <br />
               아이템을 소개합니다
             </h2>
             <ul>
               <li>
-                <p>런치백</p>
-                아폴리스와의 협업으로 탄생한 토트백
+                <h4>런치백</h4>
+                <p>아폴리스와의 협업으로 탄생한 토트백</p>
               </li>
               <li>
-                <p>키 체인</p>
-                커프 트럭을 모티브로 선보이는 엑세서리
+                <h4>키 체인</h4>
+                <p>커피 트럭을 모티브로 선보이는 액세서리</p>
               </li>
               <li>
-                <p>엠브로더리 에코백</p>
-                볼앤체인과 블루보틀 커피가 협업한 에코백
+                <h4>엠브로이더리 에코백</h4>
+                <p>볼앤체인과 블루보틀 커피가 협업한 에코백</p>
               </li>
             </ul>
             <div class="more">
-              <a href="#"
-                ><p>더 알아보기</p>
-                <p><i class="fa-solid fa-chevron-right"></i></p
-              ></a>
+              <a href="#">라이프 스타일 보기</a>
             </div>
-          </div>
-          <div class="right">
-            <img src="img/bag.webp" />
           </div>
         </div>
       </section>

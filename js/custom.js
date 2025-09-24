@@ -1,25 +1,4 @@
 $(function () {
-  /*CLICK*/
-  // $("header li").on("click", function () {
-  //   let i = $(this).index();
-  //   console.log(i);
-  //   let target = $("#container section").eq(i).offset().top;
-  //   console.log(target);
-  //   $("html").stop().animate({ scrollTop: target });
-  //   $("#navi li").removeClass("on");
-  //   $("#navi li").eq(i).addClass("on");
-  // });
-  // /*SCROLL*/
-  // let page2 = $("section#con02").offset().top;
-  // console.log(page2);
-  // $(window).on("scroll", function () {
-  //   let sc = $(this).scrollTop();
-  //   console.log(sc);
-  //   if (sc >= page2) {
-  //     $("section#con02 li").addClass("active");
-  //   }
-  // });
-
   let con01 = $("#con01").offset().top;
   let con02 = $("#con02").offset().top;
   let con03 = $("#con03").offset().top;
@@ -42,7 +21,7 @@ $(function () {
       $("#navi li").removeClass("on");
       $("#navi li").eq(1).addClass("on");
       $("#con02").addClass("on");
-    } else if (scroll >= con02 && scroll < con04) {
+    } else if (scroll >= con03 && scroll < con04) {
       // console.log("con03입니다");
       $("#navi li").removeClass("on");
       $("#navi li").eq(2).addClass("on");
@@ -56,13 +35,63 @@ $(function () {
   });
 
   /*HEADER*/
-  $("header li").on("click", function () {
+  $("header  .leftMenu li").on("click", function () {
     let i = $(this).index();
     $("#navi li").removeClass("on");
     $("#navi li").eq(i).addClass("on");
-    let target = $("section").eq(i).offset().top;
-    // console.log(target);
+    let target = $("section")
+      .eq(i + 1)
+      .offset().top;
+    console.log(target);
     $("html, body").animate({ scrollTop: target });
+  });
+
+  /*SIDE MENU*/
+  $("header .burger .open").on("click", function () {
+    $("#menu").addClass("active");
+    $(".open").hide();
+    $(".close").show();
+    $("#container").addClass("active");
+    // $("#container").animate({ opacity: "50%" });
+  });
+
+  $("header .burger .close").on("click", function () {
+    $("#menu").removeClass("active");
+    $(".close").hide();
+    $(".open").show();
+    $("#container").removeClass("active");
+    // $("#container").animate({ opacity: "100%" });
+  });
+
+  // $("#menu li").on("click", function () {
+  //   let i = $(this).index();
+  //   $("#navi li").removeClass("on");
+  //   $("#navi li").eq(i).addClass("on");
+  //   let target = $("section")
+  //     .eq(i + 1)
+  //     .offset().top;
+  //   console.log(target);
+  //   $("html, body").animate({ scrollTop: target });
+  // });
+
+  $("#menu").on("click", "li a", function (e) {
+    e.preventDefault();
+    // console.log("✅ 메뉴 클릭됨 (a 태그):", $(this).parent().index());
+  });
+  $("#menu").on("click", "li", function () {
+    let i = $(this).index();
+
+    $("#navi li").removeClass("on");
+    $("#navi li").eq(i).addClass("on");
+    let target = $("section")
+      .eq(i + 1)
+      .offset().top;
+    console.log(target);
+    $("html, body").animate({ scrollTop: target });
+    $("#menu").removeClass("active");
+    $(".close").hide();
+    $(".open").show();
+    $("#container").removeClass("active");
   });
 
   /*NAVI*/
@@ -74,4 +103,69 @@ $(function () {
     // console.log(target);
     $("html, body").animate({ scrollTop: target });
   });
+
+  /*SWIPER*/
+  $(function () {
+    let total = $(".panel li").length;
+    console.log(total);
+
+    $(".navi li:nth-child(2) span:last-child").text(total);
+
+    let i = 0;
+
+    let stop;
+
+    start();
+
+    function fade() {
+      $(".panel li").fadeOut();
+      $(".panel li").eq(i).fadeIn();
+      $(".navi li:nth-child(2) span:first-child").text(i + 1);
+
+      let bar = 33.33333 * (i + 1);
+      $(".bar div").animate({ width: `${bar}%` });
+    }
+
+    function start() {
+      stop = setInterval(function () {
+        if (i == total - 1) {
+          i = 0;
+        } else {
+          i++;
+        }
+        fade();
+      }, 5000);
+    }
+
+    $(".next").on("click", function () {
+      clearInterval(stop);
+      if (i == total - 1) {
+        i = 0; /*i가 0이 되면 다시 처음으로 돌아감*/
+      } else {
+        i++; /*i가 0과 같아지기 전까지 1씩 증가*/
+      }
+      fade();
+
+      start(); /*다시 움직이게 함수 호출*/
+    });
+
+    $(".prev").on("click", function () {
+      clearInterval(stop);
+      if (i == 0) {
+        i = total - 1; /*i가 0이 되면 다시 처음으로 돌아감*/
+      } else {
+        i--; /*i가 0과 같아지기 전까지 1씩 증가*/
+      }
+      fade();
+      start(); /*다시 움직이게 함수 호출*/
+    });
+
+    // $(".navi li").on("click", function () {
+    //   clearInterval(stop);
+    //   i = $(this).index();
+
+    //   start(); /*다시 움직이게 함수 호출*/
+    // });
+  });
+  /*변수이름을 괄호에 넣을 때는 따옴표 안 함*/
 });
